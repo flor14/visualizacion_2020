@@ -30,7 +30,7 @@ class: inverse, center
 
 # Exploración de datos
 
-&lt;img src="visualizar.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="visualizar.png" width="928" style="display: block; margin: auto;" /&gt;
 
 .footnote[**Fuente**: https://es.r4ds.hadley.nz/explorar-introduccion.html]
 ---
@@ -46,6 +46,8 @@ class: center, middle
 # Guía Rápida
 
 &lt;img src="cheatsheet.png" width="600px" style="display: block; margin: auto;" /&gt;
+
+
 ---
 
 class: middle, inverse
@@ -53,6 +55,8 @@ class: middle, inverse
 # Ggplot2
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Gramática de los gráficos
 
@@ -72,6 +76,7 @@ ggplot(data = `&lt;DATOS&gt;`) +
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 # Gramática de los gráficos
 
 
@@ -89,6 +94,8 @@ ggplot(data = `&lt;DATOS&gt;`) +
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Datos
 
 Dataset `millas` en español traducido por la comunidad **R4DS**
@@ -105,6 +112,8 @@ class: middle, inverse
 # Función Geom
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Función Geom
 
@@ -132,6 +141,8 @@ class: middle, inverse
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Mapeos 
 
 El mapeo entre las propiedades estéticas de tu gráfico y las variables de tu dataset te permite comunicar información sobre tus datos.
@@ -147,6 +158,8 @@ ggplot(data = &lt;DATOS&gt;) +
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Mapeos 
 
 Para mapear (o asignar) una estética a una variable, debes asociar el nombre de la estética al de la variable dentro de `aes()`.
@@ -156,13 +169,17 @@ Para mapear (o asignar) una estética a una variable, debes asociar el nombre de
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 
 ```r
 library(tidyverse)
 library(datos)
 
 ggplot(data = millas) +
-  geom_point(mapping = aes(x = motor, y = autopista, color = clase))
+  geom_point(mapping = aes(x = motor,
+                           y = autopista,
+                           color = clase))
 ```
 
 &lt;img src="visualizacion_files/figure-html/ggplot2-1.png" style="display: block; margin: auto;" /&gt;
@@ -172,13 +189,15 @@ ggplot(data = millas) +
 class: middle, inverse, center
 
 # 💡💻
-# Live coding #1
+# Demo #1
 
 Generar un gráfico con `ggplot2`
 
 Modificar las funciones `geom` y los mapeos
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Algunos ejemplos de gráficos
 
@@ -191,6 +210,8 @@ class: middle, inverse
 # Gráfico de Barras
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # `geom_bar()`
 
@@ -207,6 +228,8 @@ geom_bar(aes(x = color))
 .footnote[**Fuente**: RStudio Primers]
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # `geom_col()`
 
 
@@ -221,6 +244,8 @@ geom_col(aes(x = color, y = price))
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Argumentos `color` y `fill` 
 
 ¿Te animas a reproducir estos gráficos?
@@ -233,6 +258,8 @@ Acordate que siempre podes consultar la ayuda para chequear los argumentos.
 .footnote[**Fuente**: RStudio Primers - Visualize data]
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Cuidado! 
 
@@ -250,7 +277,7 @@ position = "stack"
 class: middle, inverse, center
 
 # 💡💻
-# Live coding #2
+# Demo #2
 
 Genero un gráfico de barras.
 
@@ -264,6 +291,8 @@ class: middle, inverse
 
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Histograma
 
@@ -284,6 +313,8 @@ class: middle, inverse
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Grafico de caja
 
 los diagramas de caja (boxplots) calculan un resumen robusto de la distribución y luego muestran una caja con formato especial.
@@ -292,13 +323,16 @@ los diagramas de caja (boxplots) calculan un resumen robusto de la distribución
 ```r
 library(datos)
 ggplot(data = millas) +
-  geom_boxplot(mapping = aes(x = clase, y = autopista))
+  geom_boxplot(mapping = aes(x = clase,
+                             y = autopista))
 ```
 
 &lt;img src="visualizacion_files/figure-html/caja-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Giro el sistema de coordenadas
 
@@ -325,6 +359,8 @@ class: middle, inverse
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Gráfico de puntos
 
 Uso el argumento `color` para mapear una tercer variable
@@ -332,12 +368,16 @@ Uso el argumento `color` para mapear una tercer variable
 
 ```r
 ggplot(data = millas) +
-  geom_point(mapping = aes(x = motor, y = autopista, color = clase))
+  geom_point(mapping = aes(x = motor,
+                           y = autopista,
+                           color = clase))
 ```
 
 &lt;img src="visualizacion_files/figure-html/puntos-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Gráfico de puntos
 
@@ -353,6 +393,8 @@ ggplot(data = millas)+
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Gráfico de líneas
 
 
@@ -362,7 +404,8 @@ library(gapminder)
 gapminder %&gt;% 
 filter(country %in% c("Argentina","Brazil","Chile"))%&gt;% 
 ggplot() +
-  geom_line(aes(x = year, y = pop, color = country), size = 1.5)
+  geom_line(aes(x = year, y = pop, color = country),
+            size = 1.5)
 ```
 
 &lt;img src="visualizacion_files/figure-html/lineas-1.png" style="display: block; margin: auto;" /&gt;
@@ -373,13 +416,15 @@ ggplot() +
 class: middle, inverse, center
 
 # 💡💻
-# Live coding #3
+# Demo #3
 
 ¿Cómo hago un gráfico que combina líneas y puntos?
 
 Una breve introducción a generar tus propios mapas
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Ejercicio 
 
@@ -391,7 +436,7 @@ Una breve introducción a generar tus propios mapas
    geom_point(mapping = aes(x = motor, y = autopista, color = "blue"))
 ```
 
-&lt;img src="visualizacion_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="visualizacion_files/figure-html/rere-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -400,6 +445,8 @@ class: middle, inverse
 # Heatmap
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # `geom_tile()`
 
@@ -415,28 +462,60 @@ ggplot(airquality, aes(x = Month, y = Day)) +
 
 &lt;img src="visualizacion_files/figure-html/tile-1.png" style="display: block; margin: auto;" /&gt;
 
-
-
-
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Puede ser mas complejo
 
 &lt;img src="superheatmap.png" width="400px" style="display: block; margin: auto;" /&gt;
 
-
-
 ---
 
 class: middle, inverse
 
-# Stats
+# Escalas de colores
 
 ---
 
-# Stats
+# Tipos de escalas
 
-El algoritmo utilizado para calcular nuevos valores para un gráfico se llama stat, abreviatura en inglés de transformación estadística (*stat*tistical transformation). 
+Divergente, secuencial y cualitativa
+
+&lt;img src="escalas.png" width="500px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Un paquete con paletas de colores
+
+¿Cuales son paletas divergentes/secuenciales/cualitativas?
+
+Otra paleta es `viridis` 
+
+
+```r
+library(RColorBrewer)
+RColorBrewer::display.brewer.all()
+```
+
+&lt;img src="visualizacion_files/figure-html/heater-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```r
+library(tidyverse)
+library(datos)
+
+dsamp &lt;- sample_n(diamantes, size = 1000)
+
+ggplot(dsamp,
+       aes(quilate, precio, colour = claridad))+
+  geom_point()+
+  scale_colour_brewer(palette = "Set1")
+```
+
+&lt;img src="visualizacion_files/figure-html/holala-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -447,6 +526,8 @@ class: middle, inverse
 Funciones `facet_grid` y `facet_wrap`
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # `facet_wrap()`
 
@@ -466,6 +547,8 @@ ggplot(diamantes) +
 &lt;img src="visualizacion_files/figure-html/wrap-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # `facet_grid()`
 
@@ -487,7 +570,7 @@ ggplot(diamantes) +
 class: center, middle, inverse
 
 # 💡💻
-# Live coding #4
+# Demo #4
 
 Probemos todas las posibilidades de gráficos con `facet_wrap()` y `facet_grid()`
 
@@ -496,32 +579,48 @@ Probemos todas las posibilidades de gráficos con `facet_wrap()` y `facet_grid()
 
 ---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Temas
 
 Puedes encontrar más temas en el paquete [ggthemes](https://www.ggplot2-exts.org/ggthemes.html)
 
-&lt;img src="temas.png" width="600px" style="display: block; margin: auto;" /&gt;
+&lt;img src="visualizacion_files/figure-html/themes1-1.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[https://garthtarr.github.io/meatR/ggplot_extensions.html]
+
+---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
+# Temas
+
+&lt;img src="visualizacion_files/figure-html/themes2-1.png" style="display: block; margin: auto;" /&gt;
 
 
+.footnote[https://garthtarr.github.io/meatR/ggplot_extensions.html]
 
---- 
+---
+
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Ejes
 
 ## Cambio de nombre a los ejes
 
-
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-```
-
 &lt;img src="visualizacion_files/figure-html/ejes-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
+class: center, middle, inverse
 
-# Demo
+# 💡💻
+# Demo #5
 
+Mapas 
+
+Plotly
 
 
 ---
@@ -534,13 +633,13 @@ class: center, middle, inverse
 
 [R4DS español](https://es.r4ds.hadley.nz/)
 
-[Rcookbook]()
+[Rcookbook](http://www.cookbook-r.com/)
 
 
 
 
 ---
-background-image: url(C:/Users/Roxana/curso-r-analisis-datos/img/textura-fondo.png)
+background-image: url(img/textura-fondo.png)
 background-size: cover
 class: center, middle, inverse
 
@@ -552,47 +651,10 @@ class: center, middle, inverse
 
 ---
 
-```r
-sessionInfo() 
-```
+# Práctica
 
-```
-## R version 3.6.2 (2019-12-12)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 10586)
-## 
-## Matrix products: default
-## 
-## locale:
-## [1] LC_COLLATE=Spanish_Argentina.1252  LC_CTYPE=Spanish_Argentina.1252   
-## [3] LC_MONETARY=Spanish_Argentina.1252 LC_NUMERIC=C                      
-## [5] LC_TIME=Spanish_Argentina.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-##  [1] gapminder_0.3.0   knitr_1.27        datos_0.2.0       forcats_0.4.0    
-##  [5] stringr_1.4.0     dplyr_0.8.4       purrr_0.3.3       readr_1.3.1      
-##  [9] tidyr_1.0.2       tibble_2.1.3      ggplot2_3.2.1     tidyverse_1.3.0  
-## [13] emo_0.0.0.9000    fontawesome_0.1.0
-## 
-## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.0.0  xfun_0.12         reshape2_1.4.3    haven_2.2.0      
-##  [5] lattice_0.20-38   colorspace_1.4-1  vctrs_0.2.2       generics_0.0.2   
-##  [9] viridisLite_0.3.0 htmltools_0.4.0   yaml_2.2.1        rlang_0.4.4      
-## [13] pillar_1.4.3      withr_2.1.2       glue_1.3.1        DBI_1.1.0        
-## [17] dbplyr_1.4.2      modelr_0.1.5      readxl_1.3.1      plyr_1.8.5       
-## [21] lifecycle_0.1.0   munsell_0.5.0     gtable_0.3.0      cellranger_1.1.0 
-## [25] rvest_0.3.5       evaluate_0.14     labeling_0.3      fansi_0.4.1      
-## [29] broom_0.5.4       Rcpp_1.0.3        backports_1.1.5   scales_1.1.0     
-## [33] jsonlite_1.6.1    farver_2.0.3      fs_1.3.1          hms_0.5.3        
-## [37] digest_0.6.23     stringi_1.4.5     xaringan_0.14     grid_3.6.2       
-## [41] cli_2.0.1         tools_3.6.2       magrittr_1.5      lazyeval_0.2.2   
-## [45] crayon_1.3.4      pkgconfig_2.0.3   xml2_1.2.2        reprex_0.3.0     
-## [49] lubridate_1.7.4   rstudioapi_0.10   assertthat_0.2.1  rmarkdown_2.1    
-## [53] httr_1.4.1        R6_2.4.1          nlme_3.1-142      compiler_3.6.2
-```
+
+3_practica_visualizacion.html
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

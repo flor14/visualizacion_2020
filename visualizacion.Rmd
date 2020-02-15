@@ -56,6 +56,8 @@ knitr::include_graphics("hex.png")
 ```{r cheat, echo=FALSE, out.width = "600px", fig.align = "center"}
 knitr::include_graphics("cheatsheet.png")
 ```
+
+
 ---
 
 class: middle, inverse
@@ -63,6 +65,8 @@ class: middle, inverse
 # Ggplot2
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Gramática de los gráficos
 
@@ -83,6 +87,7 @@ knitr::include_graphics("layers_1.png")
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
 # Gramática de los gráficos
 
 ```{r ggplot, eval=FALSE}
@@ -100,6 +105,8 @@ knitr::include_graphics("graficos.png")
 .footnote[**Fuente**: RStudio Cheatsheet]
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Datos
 
@@ -122,6 +129,8 @@ class: middle, inverse
 # Función Geom
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Función Geom
 
@@ -150,6 +159,8 @@ class: middle, inverse
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # Mapeos 
 
 El mapeo entre las propiedades estéticas de tu gráfico y las variables de tu dataset te permite comunicar información sobre tus datos.
@@ -164,6 +175,8 @@ ggplot(data = <DATOS>) +
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # Mapeos 
 
 Para mapear (o asignar) una estética a una variable, debes asociar el nombre de la estética al de la variable dentro de `aes()`.
@@ -175,13 +188,17 @@ knitr::include_graphics("aes.png")
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 ```{r ggplot2, echo=TRUE, fig.width=7, fig.height=5, fig.align = "center"}
 
 library(tidyverse)
 library(datos)
 
 ggplot(data = millas) +
-  geom_point(mapping = aes(x = motor, y = autopista, color = clase))
+  geom_point(mapping = aes(x = motor,
+                           y = autopista,
+                           color = clase))
 ```
 
 ---
@@ -189,13 +206,15 @@ ggplot(data = millas) +
 class: middle, inverse, center
 
 # 💡💻
-# Live coding #1
+# Demo #1
 
 Generar un gráfico con `ggplot2`
 
 Modificar las funciones `geom` y los mapeos
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Algunos ejemplos de gráficos
 
@@ -211,6 +230,8 @@ class: middle, inverse
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # `geom_bar()`
 
 ```{r bar, fig.width=7, fig.height=5, fig.align = "center"}
@@ -224,6 +245,8 @@ geom_bar(aes(x = color))
 .footnote[**Fuente**: RStudio Primers]
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # `geom_col()`
 
 ```{r col, fig.width=7, fig.height=5, fig.align = "center"}
@@ -235,6 +258,8 @@ geom_col(aes(x = color, y = price))
 ```
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Argumentos `color` y `fill` 
 
@@ -251,6 +276,8 @@ knitr::include_graphics("fill vs color.png")
 .footnote[**Fuente**: RStudio Primers - Visualize data]
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Cuidado! 
 
@@ -270,7 +297,7 @@ knitr::include_graphics("position_adj.png")
 class: middle, inverse, center
 
 # 💡💻
-# Live coding #2
+# Demo #2
 
 Genero un gráfico de barras.
 
@@ -284,6 +311,8 @@ class: middle, inverse
 
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Histograma
 
@@ -305,6 +334,8 @@ class: middle, inverse
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # Grafico de caja
 
 los diagramas de caja (boxplots) calculan un resumen robusto de la distribución y luego muestran una caja con formato especial.
@@ -312,12 +343,15 @@ los diagramas de caja (boxplots) calculan un resumen robusto de la distribución
 ```{r caja, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
 library(datos)
 ggplot(data = millas) +
-  geom_boxplot(mapping = aes(x = clase, y = autopista))
+  geom_boxplot(mapping = aes(x = clase,
+                             y = autopista))
 
 ```
 
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Giro el sistema de coordenadas
 
@@ -345,16 +379,22 @@ class: middle, inverse
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # Gráfico de puntos
 
 Uso el argumento `color` para mapear una tercer variable
 
 ```{r puntos, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
 ggplot(data = millas) +
-  geom_point(mapping = aes(x = motor, y = autopista, color = clase))
+  geom_point(mapping = aes(x = motor,
+                           y = autopista,
+                           color = clase))
 ```
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Gráfico de puntos
 
@@ -369,6 +409,8 @@ ggplot(data = millas)+
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # Gráfico de líneas
 
 ```{r lineas, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
@@ -378,7 +420,8 @@ library(gapminder)
 gapminder %>% 
 filter(country %in% c("Argentina","Brazil","Chile"))%>% 
 ggplot() +
-  geom_line(aes(x = year, y = pop, color = country), size = 1.5)
+  geom_line(aes(x = year, y = pop, color = country),
+            size = 1.5)
 ```
 
 
@@ -387,7 +430,7 @@ ggplot() +
 class: middle, inverse, center
 
 # 💡💻
-# Live coding #3
+# Demo #3
 
 ¿Cómo hago un gráfico que combina líneas y puntos?
 
@@ -395,11 +438,13 @@ Una breve introducción a generar tus propios mapas
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # Ejercicio 
 
 ¿Por qué los puntos se ven rosados?
 
-```{r , echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
+```{r rere, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
  ggplot(data = millas) +
    geom_point(mapping = aes(x = motor, y = autopista, color = "blue"))
 ```
@@ -411,6 +456,8 @@ class: middle, inverse
 # Heatmap
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # `geom_tile()`
 
@@ -425,10 +472,9 @@ ggplot(airquality, aes(x = Month, y = Day)) +
   
 ```
 
-
-
-
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # Puede ser mas complejo
 
@@ -437,19 +483,53 @@ ggplot(airquality, aes(x = Month, y = Day)) +
 knitr::include_graphics("superheatmap.png")
 ```
 
-
-
 ---
 
 class: middle, inverse
 
-# Stats
+# Escalas de colores
 
 ---
 
-# Stats
+# Tipos de escalas
 
-El algoritmo utilizado para calcular nuevos valores para un gráfico se llama stat, abreviatura en inglés de transformación estadística (*stat*tistical transformation). 
+Divergente, secuencial y cualitativa
+
+```{r escalas, echo=FALSE, out.width = "500px", fig.align = "center"}
+
+knitr::include_graphics("escalas.png")
+
+```
+
+---
+
+# Un paquete con paletas de colores
+
+¿Cuales son paletas divergentes/secuenciales/cualitativas?
+
+Otra paleta es `viridis` 
+
+```{r heater, echo=TRUE, fig.align= "center", fig.height=7, fig.width=9}
+
+library(RColorBrewer)
+RColorBrewer::display.brewer.all()
+
+```
+
+---
+
+```{r holala, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
+library(tidyverse)
+library(datos)
+
+dsamp <- sample_n(diamantes, size = 1000)
+
+ggplot(dsamp,
+       aes(quilate, precio, colour = claridad))+
+  geom_point()+
+  scale_colour_brewer(palette = "Set1")
+
+```
 
 ---
 
@@ -460,6 +540,8 @@ class: middle, inverse
 Funciones `facet_grid` y `facet_wrap`
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # `facet_wrap()`
 
@@ -477,6 +559,8 @@ ggplot(diamantes) +
 ```
 
 ---
+
+<img src="hex.png" width="10%" align="right" />
 
 # `facet_grid()`
 
@@ -496,7 +580,7 @@ ggplot(diamantes) +
 class: center, middle, inverse
 
 # 💡💻
-# Live coding #4
+# Demo #4
 
 Probemos todas las posibilidades de gráficos con `facet_wrap()` y `facet_grid()`
 
@@ -505,23 +589,68 @@ Probemos todas las posibilidades de gráficos con `facet_wrap()` y `facet_grid()
 
 ---
 
+<img src="hex.png" width="10%" align="right" />
+
 # Temas
 
 Puedes encontrar más temas en el paquete [ggthemes](https://www.ggplot2-exts.org/ggthemes.html)
 
-```{r themes, echo=FALSE, out.width="600px", fig.align = "center"}
-knitr::include_graphics("temas.png")
+```{r themes1, echo=FALSE, fig.align="center", fig.height=5, fig.width=7, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(gridExtra)
+options(warn=-1)
+p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg,
+     colour = factor(gear))) + facet_wrap(~am) + labs(colour = "Gear")
+p1 = p + theme_gray() + labs(title = "theme_gray")
+p2 = p + theme_bw() + labs(title = "theme_bw")
+p3 = p + theme_linedraw() + labs(title = "theme_linedraw")
+p4 = p + theme_light() + labs(title = "theme_light")
+p5 = p + theme_dark() + labs(title = "theme_dark")
+p6 = p + theme_minimal() + labs(title = "theme_minimal")
+p7 = p + theme_classic() + labs(title = "theme_classic")
+p8 = p + theme_void() + labs(title = "theme_void")
+grid.arrange(p1,p2,p3,p4)
+```
+
+.footnote[https://garthtarr.github.io/meatR/ggplot_extensions.html]
+
+---
+
+<img src="hex.png" width="10%" align="right" />
+
+# Temas
+
+```{r themes2, echo=FALSE, fig.align="center", fig.height=5, fig.width=7, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(gridExtra)
+options(warn=-1)
+p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg,
+     colour = factor(gear))) + facet_wrap(~am) + labs(colour = "Gear")
+p1 = p + theme_gray() + labs(title = "theme_gray")
+p2 = p + theme_bw() + labs(title = "theme_bw")
+p3 = p + theme_linedraw() + labs(title = "theme_linedraw")
+p4 = p + theme_light() + labs(title = "theme_light")
+p5 = p + theme_dark() + labs(title = "theme_dark")
+p6 = p + theme_minimal() + labs(title = "theme_minimal")
+p7 = p + theme_classic() + labs(title = "theme_classic")
+p8 = p + theme_void() + labs(title = "theme_void")
+grid.arrange(p5,p6,p7,p8)
 ```
 
 
+.footnote[https://garthtarr.github.io/meatR/ggplot_extensions.html]
 
---- 
+---
+
+
+<img src="hex.png" width="10%" align="right" />
 
 # Ejes
 
 ## Cambio de nombre a los ejes
 
-```{r ejes, echo=FALSE, fig.width=7, fig.height=5, fig.align = "center"}
+```{r ejes, echo=FALSE, fig.align = "center", fig.height=5, fig.width=7, message=FALSE, warning=FALSE}
 
 ggplot(millas, aes(motor, autopista)) +
   geom_point(aes(colour = clase)) +
@@ -537,9 +666,14 @@ ggplot(millas, aes(motor, autopista)) +
 
 ---
 
+class: center, middle, inverse
 
-# Demo
+# 💡💻
+# Demo #5
 
+Mapas 
+
+Plotly
 
 
 ---
@@ -552,13 +686,13 @@ class: center, middle, inverse
 
 [R4DS español](https://es.r4ds.hadley.nz/)
 
-[Rcookbook]()
+[Rcookbook](http://www.cookbook-r.com/)
 
 
 
 
 ---
-background-image: url(C:/Users/Roxana/curso-r-analisis-datos/img/textura-fondo.png)
+background-image: url(img/textura-fondo.png)
 background-size: cover
 class: center, middle, inverse
 
@@ -569,8 +703,10 @@ class: center, middle, inverse
 
 
 ---
-```{r } 
-sessionInfo() 
-```
+
+# Práctica
+
+
+3_practica_visualizacion.html
 
 
