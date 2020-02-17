@@ -22,8 +22,8 @@ class: inverse, center
 .large[Florencia D'Andrea | INTA-CONICET | &lt;a href="http://twitter.com/cantoflor_87"&gt; &lt;svg style="height:0.8em;top:.04em;position:relative;fill:steelblue;" viewBox="0 0 512 512"&gt;&lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/&gt;&lt;/svg&gt; @cantoflor_87&lt;/a&gt;&lt;br&gt;] 
 
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; Slides disponibles en &lt;https://bit.ly/curso-r-fca&gt; ✨
-&lt;br&gt; Página web del curso en &lt;https://curso-r-fca.netlify.com&gt; 🌟
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; Slides disponibles en &lt;https://flor14.github.io/visualizacion_2020/visualizacion#1&gt; ✨
+&lt;br&gt; Página web del curso en &lt;https://flor14.github.io/Curso_r_unne_2020/&gt; 🌟
 
 
 ---
@@ -47,12 +47,12 @@ class: center, middle
 
 &lt;img src="cheatsheet.png" width="600px" style="display: block; margin: auto;" /&gt;
 
-
+.footnote[**Fuente**: RStudio Cheatsheet]
 ---
 
 class: middle, inverse
 
-# Ggplot2
+# ggplot2 📈
 
 ---
 
@@ -105,8 +105,8 @@ Dataset `millas` en español traducido por la comunidad **R4DS**
 
 &lt;img src="r4dses.png" width="200px" style="display: block; margin: auto;" /&gt;
 
-
 ---
+
 class: middle, inverse
 
 # Función Geom
@@ -170,6 +170,8 @@ Para mapear (o asignar) una estética a una variable, debes asociar el nombre de
 ---
 
 &lt;img src="hex.png" width="10%" align="right" /&gt;
+
+Puedo incluir información de 3 variables en el gráfico si uso argumentos
 
 
 ```r
@@ -265,12 +267,14 @@ Acordate que siempre podes consultar la ayuda para chequear los argumentos.
 
 position = "fill"
 
-position = "identity"
-
 position = "stack"
+
+position = "dodge"
 
 &lt;img src="position_adj.png" width="400px" style="display: block; margin: auto;" /&gt;
 
+
+Recomiendo: [RStudio Primers](https://rstudio.cloud/learn/primers/3.2)
 
 ---
 
@@ -309,7 +313,7 @@ Ajusta el ancho del bin (contenedor) para revelar nueva información
 
 class: middle, inverse
 
-# Grafico de caja (_boxplots_)
+# Grafico de caja 
 
 ---
 
@@ -420,7 +424,7 @@ class: middle, inverse, center
 
 ¿Cómo hago un gráfico que combina líneas y puntos?
 
-Una breve introducción a generar tus propios mapas
+Entiendo que los gráficos tienen capas
 
 ---
 
@@ -429,6 +433,8 @@ Una breve introducción a generar tus propios mapas
 # Ejercicio 
 
 ¿Por qué los puntos se ven rosados?
+¿Qué pasa si sacas el argumento `color = "blue"` fuera de `aes()`?
+
 
 
 ```r
@@ -450,8 +456,6 @@ class: middle, inverse
 
 # `geom_tile()`
 
-http://analyticswithr.com/dataviz.html
-
 
 ```r
 ggplot(airquality, aes(x = Month, y = Day)) +
@@ -461,6 +465,8 @@ ggplot(airquality, aes(x = Month, y = Day)) +
 ```
 
 &lt;img src="visualizacion_files/figure-html/tile-1.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[http://analyticswithr.com/dataviz.html]
 
 ---
 
@@ -474,7 +480,7 @@ ggplot(airquality, aes(x = Month, y = Day)) +
 
 class: middle, inverse
 
-# Escalas de colores
+# Escalas de colores 📊
 
 ---
 
@@ -635,10 +641,8 @@ class: center, middle, inverse
 
 [Rcookbook](http://www.cookbook-r.com/)
 
-
-
-
 ---
+
 background-image: url(img/textura-fondo.png)
 background-size: cover
 class: center, middle, inverse
@@ -650,11 +654,6 @@ class: center, middle, inverse
 
 
 ---
-
-# Práctica
-
-
-3_practica_visualizacion.html
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
