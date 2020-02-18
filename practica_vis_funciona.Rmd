@@ -13,9 +13,9 @@ library(tidyverse)
 ### Ejercicios
 Nos gustaría que puedas reproducir los siguentes gráficos realizados en base al dataset `iris`
 
-1. Una vez que lo reproduzcas te pedimos que le agregues un título
+GRAFICO 1. Una vez que lo reproduzcas te pedimos que le agregues un título
 
-```{r cars}
+```{r cars, echo=FALSE}
 
 ggplot(iris, aes(x = Petal.Length, fill = Species))+
   geom_histogram()
@@ -25,7 +25,7 @@ ggplot(iris, aes(x = Petal.Length, fill = Species))+
 ```
 
 
-2. Cambia la escala de colores elegida por otra y explica una razón por la que sería mejor
+GRAFICO 2. Cambia la escala de colores elegida por otra y explica una razón por la que sería mejor
 
 
 ```{r pressure, echo=FALSE}
@@ -36,7 +36,7 @@ ggplot(iris, aes(Petal.Length, Sepal.Length, color = Species))+
 
 ```
 
-3. Una vez que hayas logrado reproducirlo, te pedimos que modifiques el código para que los 3 gráficos queden “apilados” en una única columna.
+GRAFICO 3. Una vez que hayas logrado reproducirlo, te pedimos que modifiques el código para que los 3 gráficos queden “apilados” en una única columna.
 
 ```{r pressure3, echo=FALSE}
 ggplot(iris, aes(Petal.Length, Sepal.Length))+
@@ -46,7 +46,7 @@ ggplot(iris, aes(Petal.Length, Sepal.Length))+
   
 ```
 
-4.Una vez que lo reproduzcas te pedimos que modifiques el código y coloques el eje y horizontal y el eje x vertical, o que “gires” el gráfico.
+GRAFICO 4.Una vez que lo reproduzcas te pedimos que modifiques el código y coloques el eje y horizontal y el eje x vertical, o que “gires” el gráfico.
 
 ```{r pressure4, echo=FALSE}
 ggplot(iris, aes(Petal.Length, Sepal.Length, color = Species))+
@@ -56,3 +56,21 @@ ggplot(iris, aes(Petal.Length, Sepal.Length, color = Species))+
 #+coord_flip()
   
 ```
+
+
+GRAFICO 5.  
+¿Que argumento podria usar para darle transparencia a los puntos? Busca la respuesta en internet.
+Utiliza un tamaño de puntos `size = 3`
+
+```{r pressur3334, echo=FALSE}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
+    geom_point(aes(color=Species, shape=Species), size = 3) +
+  theme_classic()
+
+```
+
+
+
+
+
+
