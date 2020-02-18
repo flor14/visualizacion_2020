@@ -51,7 +51,7 @@ knitr::include_graphics("hex.png")
 
 ---
 
-# Guía Rápida
+# Guía Rápida 
 
 ```{r cheat, echo=FALSE, out.width = "600px", fig.align = "center"}
 knitr::include_graphics("cheatsheet.png")
@@ -60,20 +60,28 @@ knitr::include_graphics("cheatsheet.png")
 .footnote[**Fuente**: RStudio Cheatsheet]
 ---
 
-class: middle, inverse
+<img src="hex.png" width="10%" align="right" />
+# Gramática de los gráficos
 
-# ggplot2 📈
+```{r ggplot, eval=FALSE}
+ggplot(data = `<DATOS>`) +
+  `<GEOM_FUNCIÓN>`(mapping = aes(`<MAPEOS ESTÉTICOS>`))
+```
+
+```{r graficos, echo=FALSE, out.width = "600px", fig.align = "center"}
+knitr::include_graphics("graficos.png")
+```
+
+.footnote[**Fuente**: RStudio Cheatsheet]
 
 ---
+
 
 <img src="hex.png" width="10%" align="right" />
 
 # Gramática de los gráficos
 
 ```{r ggplotplot, eval=FALSE}
-library(tidyverse)
-library(datos)
-
 ggplot(data = `<DATOS>`) +
   `<GEOM_FUNCIÓN>`(mapping = aes(`<MAPEOS ESTÉTICOS>`))
 ```
@@ -88,34 +96,16 @@ knitr::include_graphics("layers_1.png")
 ---
 
 <img src="hex.png" width="10%" align="right" />
-# Gramática de los gráficos
-
-```{r ggplot, eval=FALSE}
-library(tidyverse)
-library(datos)
-
-ggplot(data = `<DATOS>`) +
-  `<GEOM_FUNCIÓN>`(mapping = aes(`<MAPEOS ESTÉTICOS>`))
-```
-
-```{r graficos, echo=FALSE, out.width = "600px", fig.align = "center"}
-knitr::include_graphics("graficos.png")
-```
-
-.footnote[**Fuente**: RStudio Cheatsheet]
-
----
-
-<img src="hex.png" width="10%" align="right" />
 
 # Datos
 
 Dataset `millas` en español traducido por la comunidad **R4DS**
 
 ```{r eval=FALSE, include=FALSE}
-install.package("datos")
+#install.package("datos")
 library(datos)
 ```
+
 
 
 ```{r r4dses, echo=FALSE, out.width = "200px", fig.align = "center"}
@@ -126,11 +116,8 @@ knitr::include_graphics("r4dses.png")
 
 class: middle, inverse
 
-background-size: contain
-background-image: url(fondo_piola.jpg)
 
-
-# Función Geom
+# Función Geom 📈
 
 ---
 
@@ -139,14 +126,12 @@ background-image: url(fondo_piola.jpg)
 # Función Geom
 
 ```{r ggplo44t, eval=FALSE}
-library(tidyverse)
-library(datos)
 
 ggplot(data = <DATOS>) +
   `<GEOM_FUNCIÓN>`(mapping = aes(<MAPEOS>))
 ```
 
-Las funciones `geom_*()` representan los datos. 
+Las funciones `geom_*()` determinan la representación gráfica de los datos. 
 
 Cada función geom que uso forma una capa.
 
@@ -194,7 +179,7 @@ knitr::include_graphics("aes.png")
 
 <img src="hex.png" width="10%" align="right" />
 
-Puedo incluir información de 3 variables en el gráfico si uso argumentos
+Puedo incluir información de 3 variables 
 
 ```{r ggplot2, echo=TRUE, fig.width=7, fig.height=5, fig.align = "center"}
 
@@ -222,6 +207,36 @@ Modificar las funciones `geom` y los mapeos
 
 <img src="hex.png" width="10%" align="right" />
 
+# Ejercicio 
+
+¿Por qué los puntos se ven rosados?
+¿Qué pasa si sacas el argumento `color = "blue"` fuera de `aes()`?
+
+
+```{r rere, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
+ ggplot(data = millas) +
+   geom_point(mapping = aes(x = motor, y = autopista, color = "blue"))
+```
+
+---
+
+class: middle
+
+<img src="hex.png" width="10%" align="right" />
+
+
+# Variable categórica
+
+Una variable es categórica si solo puede tomar uno de un pequeño conjunto de valores -> **gráfico de barras** 📊
+
+# Variable continua
+
+Una variable es continua si puede tomar cualquiera de un conjunto infinito de valores -> **histograma** 📊
+
+---
+
+<img src="hex.png" width="10%" align="right" />
+
 # Algunos ejemplos de gráficos
 
 ```{r gordi, echo=FALSE, out.width = "900px"}
@@ -240,26 +255,13 @@ class: middle, inverse
 
 # `geom_bar()`
 
+Grafico una variable
+
 ```{r bar, fig.width=7, fig.height=5, fig.align = "center"}
 library(tidyverse)
 
 ggplot(diamonds) +
 geom_bar(aes(x = color))
-
-```
-
-.footnote[**Fuente**: RStudio Primers]
----
-
-<img src="hex.png" width="10%" align="right" />
-
-# `geom_col()`
-
-```{r col, fig.width=7, fig.height=5, fig.align = "center"}
-library(tidyverse)
-
-ggplot(diamonds) +
-geom_col(aes(x = color, y = price))
 
 ```
 
@@ -269,10 +271,7 @@ geom_col(aes(x = color, y = price))
 
 # Argumentos `color` y `fill` 
 
-¿Te animas a reproducir estos gráficos?
-
-Acordate que siempre podes consultar la ayuda para chequear los argumentos.
-
+Agrego una segunda variable en forma de color
 
 ```{r fill, echo=FALSE, out.width = "600px", fig.align = "center"}
 knitr::include_graphics("fill vs color.png")
@@ -324,14 +323,14 @@ class: middle, inverse
 
 # Histograma
 
-Ajusta el ancho del bin (contenedor) para revelar nueva información
+Ajusta el ancho de las barras con el argumento `binwidth` 
 
 ```{r histo, echo=FALSE, fig.width=7, fig.height=5, fig.align = "center"}
 
 library(datos)
 
 ggplot(data = diamantes) +
-  geom_histogram(mapping = aes(x = precio))
+  geom_histogram(mapping = aes(x = precio), binwidth = 5000)
 ```
 
 ---
@@ -345,7 +344,15 @@ class: middle, inverse
 
 # Diagrama de caja
 
-los diagramas de caja (boxplots) calculan un resumen robusto de la distribución y luego muestran una caja con formato especial.
+Los diagramas de caja representan gráficamente a los datos a través de sus cuartiles.
+
+```{r box_adj, echo=FALSE, out.width = "400px", fig.align = "center"}
+knitr::include_graphics("boxplot_imagen.png")
+```
+
+---
+
+# Diagrama de caja
 
 ```{r caja, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
 library(datos)
@@ -359,9 +366,9 @@ ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
 <img src="hex.png" width="10%" align="right" />
 # `geom_jitter()`
 
-me permite observar cuantos puntos presenta la distribución
+Puedo evaluar cuantos datos están representados
 
-```{r cajajitter, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
+```{r cajajitter, echo=TRUE, fig.align= "center", fig.height=4, fig.width=6}
 library(tidyverse)
 library(datos)
 ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
@@ -380,7 +387,7 @@ knitr::include_graphics("graficos.png")
 ```
 
 
-```{r cajaj2, echo=TRUE, fig.align= "center", fig.height=4, fig.width=6}
+```{r cajaj2, echo=TRUE, fig.align= "center", fig.height=3, fig.width=5}
 
 library(tidyverse)
 library(datos)
@@ -396,7 +403,7 @@ ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
 class: middle, inverse
 
 # Gráfico de puntos 
-# Gráfico de líneas
+# Gráfico de líneas 
 
 ---
 
@@ -419,9 +426,9 @@ ggplot(data = millas) +
 
 # Gráfico de puntos
 
-Si quiero observar tercer variable pero continua puedo usar otro argumento, como `size`
+Si quiero observar tercer variable pero esta vez continua puedo usar otro argumento, como `size`
 
-```{r size, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
+```{r size, echo=TRUE, fig.align= "center", fig.height=4, fig.width=6}
 
 ggplot(data = millas)+
   geom_point(mapping = aes(x = motor, y = autopista, size = cilindros))
@@ -434,7 +441,7 @@ ggplot(data = millas)+
 
 # Gráfico de líneas
 
-```{r lineas, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
+```{r lineas, echo=TRUE, fig.align= "center", fig.height=4, fig.width=6}
 
 library(gapminder)
 
@@ -459,21 +466,6 @@ Entiendo que los gráficos tienen capas
 
 ---
 
-<img src="hex.png" width="10%" align="right" />
-
-# Ejercicio 
-
-¿Por qué los puntos se ven rosados?
-¿Qué pasa si sacas el argumento `color = "blue"` fuera de `aes()`?
-
-
-```{r rere, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
- ggplot(data = millas) +
-   geom_point(mapping = aes(x = motor, y = autopista, color = "blue"))
-```
-
----
-
 class: middle, inverse
 
 # Heatmap
@@ -484,7 +476,7 @@ class: middle, inverse
 
 # `geom_tile()`
 
-```{r tile, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
+```{r tile, echo=TRUE, fig.align= "center", fig.height=4, fig.width=6}
 
 ggplot(airquality, aes(x = Month, y = Day)) +
   geom_tile(aes(fill=Temp))+
@@ -687,9 +679,10 @@ ggplot(millas, aes(motor, autopista)) +
 
 ```
 
+
 ---
 
-class{center, middle, inverse
+class: center, middle, inverse
 
 # Links
 

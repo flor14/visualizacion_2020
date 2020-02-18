@@ -43,18 +43,28 @@ class: center, middle
 
 ---
 
-# Guía Rápida
+# Guía Rápida 
 
 &lt;img src="cheatsheet.png" width="600px" style="display: block; margin: auto;" /&gt;
 
 .footnote[**Fuente**: RStudio Cheatsheet]
 ---
 
-class: middle, inverse
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+# Gramática de los gráficos
 
-# ggplot2 📈
+
+```r
+ggplot(data = `&lt;DATOS&gt;`) +
+  `&lt;GEOM_FUNCIÓN&gt;`(mapping = aes(`&lt;MAPEOS ESTÉTICOS&gt;`))
+```
+
+&lt;img src="graficos.png" width="600px" style="display: block; margin: auto;" /&gt;
+
+.footnote[**Fuente**: RStudio Cheatsheet]
 
 ---
+
 
 &lt;img src="hex.png" width="10%" align="right" /&gt;
 
@@ -62,33 +72,12 @@ class: middle, inverse
 
 
 ```r
-library(tidyverse)
-library(datos)
-
 ggplot(data = `&lt;DATOS&gt;`) +
   `&lt;GEOM_FUNCIÓN&gt;`(mapping = aes(`&lt;MAPEOS ESTÉTICOS&gt;`))
 ```
 
 
 &lt;img src="layers_1.png" width="600px" style="display: block; margin: auto;" /&gt;
-
-.footnote[**Fuente**: RStudio Cheatsheet]
-
----
-
-&lt;img src="hex.png" width="10%" align="right" /&gt;
-# Gramática de los gráficos
-
-
-```r
-library(tidyverse)
-library(datos)
-
-ggplot(data = `&lt;DATOS&gt;`) +
-  `&lt;GEOM_FUNCIÓN&gt;`(mapping = aes(`&lt;MAPEOS ESTÉTICOS&gt;`))
-```
-
-&lt;img src="graficos.png" width="600px" style="display: block; margin: auto;" /&gt;
 
 .footnote[**Fuente**: RStudio Cheatsheet]
 
@@ -103,17 +92,15 @@ Dataset `millas` en español traducido por la comunidad **R4DS**
 
 
 
+
 &lt;img src="r4dses.png" width="200px" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: middle, inverse
 
-background-size: contain
-background-image: url(fondo_piola.jpg)
 
-
-# Función Geom
+# Función Geom 📈
 
 ---
 
@@ -123,14 +110,11 @@ background-image: url(fondo_piola.jpg)
 
 
 ```r
-library(tidyverse)
-library(datos)
-
 ggplot(data = &lt;DATOS&gt;) +
   `&lt;GEOM_FUNCIÓN&gt;`(mapping = aes(&lt;MAPEOS&gt;))
 ```
 
-Las funciones `geom_*()` representan los datos. 
+Las funciones `geom_*()` determinan la representación gráfica de los datos. 
 
 Cada función geom que uso forma una capa.
 
@@ -175,7 +159,7 @@ Para mapear (o asignar) una estética a una variable, debes asociar el nombre de
 
 &lt;img src="hex.png" width="10%" align="right" /&gt;
 
-Puedo incluir información de 3 variables en el gráfico si uso argumentos
+Puedo incluir información de 3 variables 
 
 
 ```r
@@ -205,6 +189,39 @@ Modificar las funciones `geom` y los mapeos
 
 &lt;img src="hex.png" width="10%" align="right" /&gt;
 
+# Ejercicio 
+
+¿Por qué los puntos se ven rosados?
+¿Qué pasa si sacas el argumento `color = "blue"` fuera de `aes()`?
+
+
+
+```r
+ ggplot(data = millas) +
+   geom_point(mapping = aes(x = motor, y = autopista, color = "blue"))
+```
+
+&lt;img src="visualizacion_files/figure-html/rere-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: middle
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
+
+# Variable categórica
+
+Una variable es categórica si solo puede tomar uno de un pequeño conjunto de valores -&gt; **gráfico de barras** 📊
+
+# Variable continua
+
+Una variable es continua si puede tomar cualquiera de un conjunto infinito de valores -&gt; **histograma** 📊
+
+---
+
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+
 # Algunos ejemplos de gráficos
 
 &lt;img src="cajas.png" width="900px" /&gt;
@@ -221,6 +238,8 @@ class: middle, inverse
 
 # `geom_bar()`
 
+Grafico una variable
+
 
 ```r
 library(tidyverse)
@@ -231,33 +250,13 @@ geom_bar(aes(x = color))
 
 &lt;img src="visualizacion_files/figure-html/bar-1.png" style="display: block; margin: auto;" /&gt;
 
-.footnote[**Fuente**: RStudio Primers]
----
-
-&lt;img src="hex.png" width="10%" align="right" /&gt;
-
-# `geom_col()`
-
-
-```r
-library(tidyverse)
-
-ggplot(diamonds) +
-geom_col(aes(x = color, y = price))
-```
-
-&lt;img src="visualizacion_files/figure-html/col-1.png" style="display: block; margin: auto;" /&gt;
-
 ---
 
 &lt;img src="hex.png" width="10%" align="right" /&gt;
 
 # Argumentos `color` y `fill` 
 
-¿Te animas a reproducir estos gráficos?
-
-Acordate que siempre podes consultar la ayuda para chequear los argumentos.
-
+Agrego una segunda variable en forma de color
 
 &lt;img src="fill vs color.png" width="600px" style="display: block; margin: auto;" /&gt;
 
@@ -304,12 +303,7 @@ class: middle, inverse
 
 # Histograma
 
-Ajusta el ancho del bin (contenedor) para revelar nueva información
-
-
-```
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
+Ajusta el ancho de las barras con el argumento `binwidth` 
 
 &lt;img src="visualizacion_files/figure-html/histo-1.png" style="display: block; margin: auto;" /&gt;
 
@@ -324,7 +318,13 @@ class: middle, inverse
 
 # Diagrama de caja
 
-los diagramas de caja (boxplots) calculan un resumen robusto de la distribución y luego muestran una caja con formato especial.
+Los diagramas de caja representan gráficamente a los datos a través de sus cuartiles.
+
+&lt;img src="boxplot_imagen.png" width="400px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Diagrama de caja
 
 
 ```r
@@ -340,7 +340,7 @@ ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
 &lt;img src="hex.png" width="10%" align="right" /&gt;
 # `geom_jitter()`
 
-me permite observar cuantos puntos presenta la distribución
+Puedo evaluar cuantos datos están representados
 
 
 ```r
@@ -378,7 +378,7 @@ ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
 class: middle, inverse
 
 # Gráfico de puntos 
-# Gráfico de líneas
+# Gráfico de líneas 
 
 ---
 
@@ -404,7 +404,7 @@ ggplot(data = millas) +
 
 # Gráfico de puntos
 
-Si quiero observar tercer variable pero continua puedo usar otro argumento, como `size`
+Si quiero observar tercer variable pero esta vez continua puedo usar otro argumento, como `size`
 
 
 ```r
@@ -444,24 +444,6 @@ class: middle, inverse, center
 ¿Cómo hago un gráfico que combina líneas y puntos?
 
 Entiendo que los gráficos tienen capas
-
----
-
-&lt;img src="hex.png" width="10%" align="right" /&gt;
-
-# Ejercicio 
-
-¿Por qué los puntos se ven rosados?
-¿Qué pasa si sacas el argumento `color = "blue"` fuera de `aes()`?
-
-
-
-```r
- ggplot(data = millas) +
-   geom_point(mapping = aes(x = motor, y = autopista, color = "blue"))
-```
-
-&lt;img src="visualizacion_files/figure-html/rere-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -636,9 +618,10 @@ Puedes encontrar más temas en el paquete [ggthemes](https://www.ggplot2-exts.or
 
 &lt;img src="visualizacion_files/figure-html/ejes-1.png" style="display: block; margin: auto;" /&gt;
 
+
 ---
 
-class{center, middle, inverse
+class: center, middle, inverse
 
 # Links
 
