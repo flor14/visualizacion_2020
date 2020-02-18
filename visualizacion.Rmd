@@ -369,13 +369,15 @@ ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
 Puedo evaluar cuantos datos están representados
 
 ```{r cajajitter, echo=TRUE, fig.align= "center", fig.height=4, fig.width=6}
+
 library(tidyverse)
 library(datos)
-ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+ggplot(data = millas, mapping = aes(x = clase, y = autopista))+
   geom_boxplot()+
   geom_jitter()
 
 ```
+
 ---
 
 <img src="hex.png" width="10%" align="right" />
@@ -524,7 +526,7 @@ knitr::include_graphics("escalas.png")
 
 Otra paleta es `viridis` 
 
-```{r heater, echo=TRUE, fig.align= "center", fig.height=7, fig.width=9}
+```{r heater, echo=TRUE, fig.align= "center", fig.height=6, fig.width=8}
 
 library(RColorBrewer)
 RColorBrewer::display.brewer.all()

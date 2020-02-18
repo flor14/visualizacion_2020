@@ -346,12 +346,13 @@ Puedo evaluar cuantos datos están representados
 ```r
 library(tidyverse)
 library(datos)
-ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+ggplot(data = millas, mapping = aes(x = clase, y = autopista))+
   geom_boxplot()+
   geom_jitter()
 ```
 
 &lt;img src="visualizacion_files/figure-html/cajajitter-1.png" style="display: block; margin: auto;" /&gt;
+
 ---
 
 &lt;img src="hex.png" width="10%" align="right" /&gt;
