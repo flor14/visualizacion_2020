@@ -109,6 +109,10 @@ Dataset `millas` en español traducido por la comunidad **R4DS**
 
 class: middle, inverse
 
+background-size: contain
+background-image: url(fondo_piola.jpg)
+
+
 # Función Geom
 
 ---
@@ -313,27 +317,41 @@ Ajusta el ancho del bin (contenedor) para revelar nueva información
 
 class: middle, inverse
 
-# Grafico de caja 
+# Diagrama de caja
 
 ---
-
 &lt;img src="hex.png" width="10%" align="right" /&gt;
 
-# Grafico de caja
+# Diagrama de caja
 
 los diagramas de caja (boxplots) calculan un resumen robusto de la distribución y luego muestran una caja con formato especial.
 
 
 ```r
 library(datos)
-ggplot(data = millas) +
-  geom_boxplot(mapping = aes(x = clase,
-                             y = autopista))
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()
 ```
 
 &lt;img src="visualizacion_files/figure-html/caja-1.png" style="display: block; margin: auto;" /&gt;
 
+---
 
+&lt;img src="hex.png" width="10%" align="right" /&gt;
+# `geom_jitter()`
+
+me permite observar cuantos puntos presenta la distribución
+
+
+```r
+library(tidyverse)
+library(datos)
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()+
+  geom_jitter()
+```
+
+&lt;img src="visualizacion_files/figure-html/cajajitter-1.png" style="display: block; margin: auto;" /&gt;
 ---
 
 &lt;img src="hex.png" width="10%" align="right" /&gt;
@@ -345,21 +363,22 @@ ggplot(data = millas) +
 
 
 ```r
+library(tidyverse)
 library(datos)
-ggplot(data = millas)+
-  geom_boxplot(mapping = aes(x = clase, y = autopista))+
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()+
+  geom_jitter()+
   coord_flip()
 ```
 
-&lt;img src="visualizacion_files/figure-html/caja2-1.png" style="display: block; margin: auto;" /&gt;
-
+&lt;img src="visualizacion_files/figure-html/cajaj2-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: middle, inverse
 
-# Gráfico de puntos (_scatterplot_)
-# Grafico de líneas
+# Gráfico de puntos 
+# Gráfico de líneas
 
 ---
 
@@ -619,19 +638,7 @@ Puedes encontrar más temas en el paquete [ggthemes](https://www.ggplot2-exts.or
 
 ---
 
-class: center, middle, inverse
-
-# 💡💻
-# Demo #5
-
-Mapas 
-
-Plotly
-
-
----
-
-class: center, middle, inverse
+class{center, middle, inverse
 
 # Links
 
@@ -641,9 +648,13 @@ class: center, middle, inverse
 
 [Rcookbook](http://www.cookbook-r.com/)
 
+[Fundamentals of Data Visualization](https://serialmentor.com/dataviz/index.html)
+
+[Geocomputation with R](https://geocompr.robinlovelace.net/index.html)
+
 ---
 
-background-image: url(img/textura-fondo.png)
+background-image: url(textura-fondo.png)
 background-size: cover
 class: center, middle, inverse
 
@@ -651,9 +662,9 @@ class: center, middle, inverse
 
 # 🙋 ¿Preguntas?
 
-
-
 ---
+
+# Práctica
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -126,6 +126,10 @@ knitr::include_graphics("r4dses.png")
 
 class: middle, inverse
 
+background-size: contain
+background-image: url(fondo_piola.jpg)
+
+
 # Función Geom
 
 ---
@@ -334,25 +338,37 @@ ggplot(data = diamantes) +
 
 class: middle, inverse
 
-# Grafico de caja 
+# Diagrama de caja
 
 ---
-
 <img src="hex.png" width="10%" align="right" />
 
-# Grafico de caja
+# Diagrama de caja
 
 los diagramas de caja (boxplots) calculan un resumen robusto de la distribución y luego muestran una caja con formato especial.
 
 ```{r caja, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
 library(datos)
-ggplot(data = millas) +
-  geom_boxplot(mapping = aes(x = clase,
-                             y = autopista))
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()
 
 ```
 
+---
 
+<img src="hex.png" width="10%" align="right" />
+# `geom_jitter()`
+
+me permite observar cuantos puntos presenta la distribución
+
+```{r cajajitter, echo=TRUE, fig.align= "center", fig.height=5, fig.width=7}
+library(tidyverse)
+library(datos)
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()+
+  geom_jitter()
+
+```
 ---
 
 <img src="hex.png" width="10%" align="right" />
@@ -364,22 +380,23 @@ knitr::include_graphics("graficos.png")
 ```
 
 
-```{r caja2, echo=TRUE, fig.align= "center", fig.height=4, fig.width=6}
+```{r cajaj2, echo=TRUE, fig.align= "center", fig.height=4, fig.width=6}
 
+library(tidyverse)
 library(datos)
-ggplot(data = millas)+
-  geom_boxplot(mapping = aes(x = clase, y = autopista))+
+ggplot(data = millas, mapping = aes(x = clase, y = autopista)) +
+  geom_boxplot()+
+  geom_jitter()+
   coord_flip()
 
 ```
-
 
 ---
 
 class: middle, inverse
 
-# Gráfico de puntos (_scatterplot_)
-# Grafico de líneas
+# Gráfico de puntos 
+# Gráfico de líneas
 
 ---
 
@@ -672,19 +689,7 @@ ggplot(millas, aes(motor, autopista)) +
 
 ---
 
-class: center, middle, inverse
-
-# 💡💻
-# Demo #5
-
-Mapas 
-
-Plotly
-
-
----
-
-class: center, middle, inverse
+class{center, middle, inverse
 
 # Links
 
@@ -694,9 +699,13 @@ class: center, middle, inverse
 
 [Rcookbook](http://www.cookbook-r.com/)
 
+[Fundamentals of Data Visualization](https://serialmentor.com/dataviz/index.html)
+
+[Geocomputation with R](https://geocompr.robinlovelace.net/index.html)
+
 ---
 
-background-image: url(img/textura-fondo.png)
+background-image: url(textura-fondo.png)
 background-size: cover
 class: center, middle, inverse
 
@@ -704,9 +713,9 @@ class: center, middle, inverse
 
 # `r emo::ji("raising_hand")` ¿Preguntas?
 
-
-
 ---
+
+# Práctica
 
 
 
